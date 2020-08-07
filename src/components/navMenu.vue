@@ -8,10 +8,13 @@
     active-text-color="#ffffff"
   >
     <template v-for="route of navRoutes">
-      <el-menu-item @click="changPage(route.path)" v-if="!route.children" :key="route.id" :index="route.path"><i class="el-icon-s-data"></i><span slot="title">{{route.name}}</span></el-menu-item>
-      <el-submenu v-if="route.children" :key="route.id">
-        <template slot="title">{{route.name}}</template>
-        <el-menu-item @click="changePage(route.path + child.path)" v-for="child in route.children" :key="child.id" :index="route.path + child.path">{{child.name}}</el-menu-item>
+      <el-menu-item @click="changePage(route.path)" v-if="!route.children" :key="route.id" :index="route.path"><i :class="route.icon"></i><span slot="title">{{route.name}}</span></el-menu-item>
+      <el-submenu v-if="route.children" :key="route.id" :index="route.name">
+        <template slot="title">
+          <i :class="route.icon"></i>
+          <span slot="title">{{route.name}}</span>
+        </template>
+        <el-menu-item @click="changePage(route.path + child.path)" v-for="child in route.children" :key="child.id" :index="route.path + child.path"><span slot="title">{{child.name}}</span></el-menu-item>
       </el-submenu>
     </template>
   </el-menu>
@@ -22,6 +25,9 @@ import {navRoutes} from '../router/navRoutes';
 
 export default {
   name: 'navMenu',
+  props: {
+    collapse: Boolean
+  },
   data() {
     return {
       navRoutes
@@ -34,7 +40,7 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="less">
 .el-menu-nav{
   border: none;
   &:not(.el-menu--collapse) {

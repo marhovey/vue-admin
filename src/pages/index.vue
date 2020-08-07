@@ -7,7 +7,7 @@
         <i class="el-icon-picture"></i>
         <span :class="{ hide: collapse}" class="brand-name">Brand</span>
       </div>
-      <NavMenu />
+      <NavMenu :collapse="collapse" />
     </el-aside>
     <el-container>
       <el-header class="top-header">

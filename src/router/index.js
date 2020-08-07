@@ -6,6 +6,10 @@ const Login = () => import('@/pages/login');
 const Home = () => import('@/pages/home');
 const BaseForm = () => import('@/pages/baseForm');
 const StepForm = () => import('@/pages/stepForm');
+const BaseList = () => import('@/pages/baseList');
+const CardList = () => import('@/pages/cardList');
+const Setting = () => import('@/pages/setting');
+const UserCenter = () => import('@/pages/userCenter');
 
 Vue.use(Router);
 
@@ -33,6 +37,26 @@ const routes = [
         path: 'stepForm',
         component: StepForm,
         name: '分步表格'
+      },
+      {
+        path: 'userCenter',
+        component: UserCenter,
+        name: '个人中心'
+      },
+      {
+        path: 'setting',
+        component: Setting,
+        name: '设置'
+      },
+      {
+        path: 'baseList',
+        component: BaseList,
+        name: '基础列表'
+      },
+      {
+        path: 'cardList',
+        component: CardList,
+        name: '卡片表格'
       }
     ]
   }
