@@ -7,37 +7,7 @@
         <i class="el-icon-picture"></i>
         <span :class="{ hide: collapse}" class="brand-name">Brand</span>
       </div>
-      <el-menu
-        class="el-menu-nav"
-        background-color="#001529"
-        text-color="#ffffffa6"
-        :collapse="collapse"
-        :default-active="activeIndex"
-        active-text-color="#ffffff"
-      >
-        <el-menu-item index="1"><i class="el-icon-s-data"></i><span slot="title">首页</span></el-menu-item>
-        <el-submenu index="2">
-          <template slot="title"><i class="el-icon-document"></i><span slot="title">表单</span></template>
-          <el-menu-item-group>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-submenu index="3">
-          <template slot="title"><i class="el-icon-s-order"></i><span slot="title">列表</span></template>
-          <el-menu-item-group>
-            <el-menu-item index="3-1">选项1</el-menu-item>
-            <el-menu-item index="3-2">选项2</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-submenu index="4">
-          <template slot="title"><i class="el-icon-s-custom"></i><span slot="title">账户</span></template>
-          <el-menu-item-group>
-            <el-menu-item index="4-1">个人中心</el-menu-item>
-            <el-menu-item index="4-2">个人设置</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-      </el-menu>
+      <NavMenu />
     </el-aside>
     <el-container>
       <el-header class="top-header">
@@ -68,9 +38,7 @@
           </div>
         </div>
       </el-header>
-      <el-header class="tabs">
-      </el-header>
-      <el-main>
+      <el-main class="container">
         <router-view />
       </el-main>
     </el-container>
@@ -78,8 +46,12 @@
 </template>
 
 <script>
+import NavMenu from '../components/navMenu';
 export default {
   name: 'Index',
+  components: {
+    NavMenu
+  },
   data: () => {
     return {
       collapse: false,
@@ -116,31 +88,14 @@ export default {
         }
       }
     }
-    .el-menu-nav{
-      border: none;
-      &:not(.el-menu--collapse) {
-        width: 200px;
-      }
-      .el-menu-item,
-      .el-submenu__title {
-        i {
-          color: inherit;
-        }
-      }
-    }
-  }
-  .el-menu-item:hover,
-  .el-submenu__title:hover{
-    color: #ffffff !important;
-  }
-  .el-menu-item.is-active{
-    background-color: #409eff !important;
   }
   .top-header{
     display: flex;
     background-color: #ffffff;
     align-items: center;
-    line-height: 60px;
+    height: 48px !important;
+    line-height: 48px;
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
     .fold-icon{
       font-size: 20px;
       color: rgba(0, 0, 0, .85);
@@ -152,7 +107,7 @@ export default {
     }
     .top-menu{
       display: flex;
-      height: 60px;
+      height: 48px;
       .avatar{
         img{
           width: 24px;
@@ -164,6 +119,13 @@ export default {
           align-items: center;
         }
       }
+    }
+  }
+  .container{
+    height: calc(100vh - 60px);
+    .page-content{
+      background-color: #ffffff;
+      padding: 24px;
     }
   }
 </style>
