@@ -3,10 +3,6 @@
     <el-aside
       width="auto"
       class="page-aside">
-      <div class="brand">
-        <i class="el-icon-picture"></i>
-        <span :class="{ hide: collapse}" class="brand-name">Brand</span>
-      </div>
       <NavMenu :collapse="collapse" />
     </el-aside>
     <el-container>
@@ -15,12 +11,6 @@
           <i :class="{'el-icon-s-unfold': collapse, 'el-icon-s-fold': !collapse}"></i>
         </div>
         <div class="top-place">
-          <el-breadcrumb separator="/">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>
-            <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-            <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-          </el-breadcrumb>
         </div>
         <div class="top-menu">
           <div class="avatar">
@@ -37,6 +27,8 @@
             </el-dropdown>
           </div>
         </div>
+      </el-header>
+      <el-header class="top-nav">
       </el-header>
       <el-main class="container">
         <router-view />
@@ -74,20 +66,6 @@ export default {
     height: 100vh;
     background-color: #001529;
     overflow: hidden auto;
-    .brand{
-      padding: 20px;
-      font-size: 24px;
-      color: #ffffff;
-      .brand-name{
-        transition: all .3s;
-        opacity: 1;
-        display: inline-block;
-        &.hide{
-          opacity: 0;
-          width: 0;
-        }
-      }
-    }
   }
   .top-header{
     display: flex;
@@ -95,6 +73,8 @@ export default {
     align-items: center;
     height: 48px !important;
     line-height: 48px;
+    position: relative;
+    z-index: 2;
     box-shadow: 0 1px 4px rgba(0,21,41,.08);
     .fold-icon{
       font-size: 20px;
@@ -121,8 +101,16 @@ export default {
       }
     }
   }
+  .top-nav{
+    height: 32px !important;
+    border-bottom: 1px solid rgba(0,21,41,.08);
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
+    position: relative;
+    z-index: 1;
+    overflow-x: auto;
+  }
   .container{
-    height: calc(100vh - 60px);
+    height: calc(100vh - 92px);
     .page-content{
       background-color: #ffffff;
       padding: 24px;
