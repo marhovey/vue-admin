@@ -1,5 +1,5 @@
 <template>
-  <div class="base-list">
+  <div class="base-list page-content">
     
   </div>
 </template>

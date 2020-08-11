@@ -10,6 +10,7 @@ const BaseList = () => import('@/pages/baseList');
 const CardList = () => import('@/pages/cardList');
 const Setting = () => import('@/pages/setting');
 const UserCenter = () => import('@/pages/userCenter');
+const TableList = () => import('@/pages/tableList');
 
 Vue.use(Router);
 
@@ -31,12 +32,17 @@ const routes = [
       {
         path: 'baseForm',
         component: BaseForm,
-        name: '基础表格'
+        name: '基础表单'
       },
       {
         path: 'stepForm',
         component: StepForm,
-        name: '分步表格'
+        name: '分步表单'
+      },
+      {
+        path: 'tableList',
+        component: TableList,
+        name: '查询表格'
       },
       {
         path: 'userCenter',

@@ -6,36 +6,41 @@ export const navRoutes = [
     icon: 'el-icon-s-data'
   },
   {
-    name: '表格',
+    name: '表单页',
     path: '/index',
     id: 2,
     icon: 'el-icon-document',
     children: [
       {
         id: 21,
-        name: '基础表格',
+        name: '基础表单',
         path: '/baseForm'
       },
       {
         id: 22,
-        name: '分步表格',
+        name: '分步表单',
         path: '/stepForm'
       }
     ]
   },
   {
-    name: '列表',
+    name: '列表页',
     path: '/index',
     id: 3,
     icon: 'el-icon-coin',
     children: [
       {
         id: 31,
-        name: '标准列表',
-        path: '/baseList'
+        name: '查询表格',
+        path: '/tableList'
       },
       {
         id: 32,
+        name: '基础列表',
+        path: '/baseList'
+      },
+      {
+        id: 33,
         name: '卡片列表',
         path: '/cardList'
       }
